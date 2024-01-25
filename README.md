@@ -9,8 +9,10 @@ This repository uses [Once for All](https://arxiv.org/abs/1908.09791) (OFA), a m
 
 Furthermore, OFA introduces **accuracy and efficiency predictors** to further reduce the evaluation cost during architecture search. Intuitively the accuracy of a sub-network requires running inference on the entire holdout validation set, which can take around 1 minute on ImageNet. OFA, instead, collects a large amount of (architecture, accuracy) pairs beforehand and trains a regression model to **predict** the accuracy during search. This greatly reduces the cost to get the accuracy feedback from 1 minute to less than 1 second for each sub-network. Similar idea can also be applied to efficiency predictors, where the evaluation of **latency** are usually very slow since we have to run the forward pass of the candidate network for many times.
 
+
+## Overall method for OFA which is implemented in the notebook
 <img src="./images/method.png" align = "center">
-Overall method for OFA which is implemented in the notebook
+
 
 <img src="./images/evolutionary.png" align = "center">
 Evolutionary search was used to find the right network.
